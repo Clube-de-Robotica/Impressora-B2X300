@@ -648,7 +648,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 250
+#define HEATER_0_MAXTEMP 280
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -1252,7 +1252,7 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 1600, 101.02}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 1600, 415}
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
@@ -1598,7 +1598,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 4, 41, -16 }
+#define NOZZLE_TO_PROBE_OFFSET { -4, 54, -16 }
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
@@ -1845,11 +1845,11 @@
 #define Y_BED_SIZE 200
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -16
-#define Y_MIN_POS -17
+#define X_MIN_POS -10
+#define Y_MIN_POS 10
 #define Z_MIN_POS 0
-#define X_MAX_POS 308
-#define Y_MAX_POS 222
+#define X_MAX_POS 313
+#define Y_MAX_POS 230
 #define Z_MAX_POS 300
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
@@ -2448,7 +2448,7 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 5), (X_MIN_POS + 5), 20 }
+  #define NOZZLE_PARK_POINT { (X_MIN_POS + 5), (Y_MIN_POS + 5), 20 }
   #define NOZZLE_PARK_MOVE          0   // Park motion: 0 = XY Move, 1 = X Only, 2 = Y Only, 3 = X before Y, 4 = Y before X
   #define NOZZLE_PARK_Z_RAISE_MIN   5   // (mm) Always raise Z by at least this distance
   #define NOZZLE_PARK_XY_FEEDRATE 100   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
